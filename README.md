@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Google Developer Groups Event Highlights & Workshop Notes
 
 *Date: [Insert Date of Event]*
@@ -24,16 +28,7 @@ This session focused on evolving our relationship with AI from simple prompting 
 
 The workshop highlighted moving beyond a single prompt into a multi-step iterative process to improve code generation quality.
 
-```mermaid
-graph TD
-    A[Start: Define Task & Context] --> B{AI Drafts Solution};
-    B --> C[AI Critiques Draft];
-    C --> D[AI Improves based on Critique];
-    D --> E[AI Generates Implementation Checklist];
-    E --> F{Validation Pass};
-    F -- Iteration needed --> B;
-    F -- Validated --> G[Final Code Output];
-```
+![AI Thinking Model Workflow Diagram](images/ai-thinking-model-workflow.png)
 
 -----
 
@@ -54,22 +49,7 @@ This workshop explored moving beyond standard chatbots to building "AI Agents"�
 
 How an agent processes a user request into concrete actions.
 
-```mermaid
-sequenceDiagram
-    participant User
-    participant Orchestrator (ADK)
-    participant Brain (LLM)
-    participant Tools (APIs/Functions)
-
-    User->>Orchestrator (ADK): "What's the weather in Dubai?"
-    Orchestrator (ADK)->>Brain (LLM): Sends input + available tool definitions
-    Brain (LLM)-->>Orchestrator (ADK): Decides: Needs to call tool `get_weather('Dubai')`
-    Orchestrator (ADK)->>Tools (APIs/Functions): Calls `get_weather('Dubai')`
-    Tools (APIs/Functions)-->>Orchestrator (ADK): Returns data: "Sunny, 35°C"
-    Orchestrator (ADK)->>Brain (LLM): Sends tool output back to brain
-    Brain (LLM)-->>Orchestrator (ADK): Generates final natural language response
-    Orchestrator (ADK)->>User: "It is currently sunny and 35°C in Dubai."
-```
+![Agent Orchestration Flow Diagram](images/agent-orchestration-flow.png)
 
 **Resources & Links:**
 
@@ -93,18 +73,7 @@ This session focused on best practices for modern testing pipelines, emphasizing
 
 ### Standard TestOps Pipeline Structure
 
-```mermaid
-graph LR
-    A[Code Commit/Merge] --> B(CI Trigger);
-    B --> C{Build Application};
-    C --> D[Unit & Integration Tests];
-    D -- Fail --> E[Reject Merge];
-    D -- Pass --> F[Deploy to Staging/QA Env];
-    F --> G{Run Smoke/Sanity Tests};
-    G -- Fail --> H[Alert Team];
-    G -- Pass --> I[Run Full Regression/E2E Suite];
-    I --> J[Generate & Publish QA Report];
-```
+![TestOps Pipeline Structure Diagram](images/testops-pipeline-structure.png)
 
 -----
 
@@ -125,21 +94,4 @@ This workshop addressed the friction of native app updates by introducing Server
 
 ### Server-Driven UI Flow
 
-```mermaid
-sequenceDiagram
-    participant App Client (Compose)
-    participant Firebase Remote Config
-    participant AI Admin Agent (Optional)
-
-    Note over Firebase Remote Config: Stores UI Layout structure (JSON)
-    App Client (Compose)->>Firebase Remote Config: Fetch latest UI Configuration
-    Firebase Remote Config-->>App Client (Compose): Returns Layout JSON
-    App Client (Compose)->>App Client (Compose): Parses JSON & dynamically renders Compose components
-    Note over App Client (Compose): UI updated instantly without App Store download
-
-    rect rgb(240, 240, 240)
-    note right of AI Admin Agent (Optional): Optional AI Control Plane
-    AI Admin Agent (Optional)->>Firebase Remote Config: MCP Command: `set_remote_config` (Update Layout)
-    end
-```
-
+![Server-Driven UI Flow Diagram](images/server-driven-ui-flow.png)

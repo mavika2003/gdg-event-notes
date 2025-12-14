@@ -28,7 +28,7 @@ This session focused on evolving our relationship with AI from simple prompting 
 
 The workshop highlighted moving beyond a single prompt into a multi-step iterative process to improve code generation quality.
 
-![AI Thinking Model Workflow Diagram](images/ai-thinking-model-workflow.png)
+![AI Thinking Model Workflow Diagram](images/w1.png)
 
 -----
 
@@ -49,7 +49,7 @@ This workshop explored moving beyond standard chatbots to building "AI Agents"â€
 
 How an agent processes a user request into concrete actions.
 
-![Agent Orchestration Flow Diagram](images/agent-orchestration-flow.png)
+![Agent Orchestration Flow Diagram](images/w2.png)
 
 **Resources & Links:**
 
@@ -73,7 +73,7 @@ This session focused on best practices for modern testing pipelines, emphasizing
 
 ### Standard TestOps Pipeline Structure
 
-![TestOps Pipeline Structure Diagram](images/testops-pipeline-structure.png)
+![TestOps Pipeline Structure Diagram](images/w3.png)
 
 -----
 
@@ -94,4 +94,4 @@ This workshop addressed the friction of native app updates by introducing Server
 
 ### Server-Driven UI Flow
 
-![Server-Driven UI Flow Diagram](images/server-driven-ui-flow.png)
+![Server-Driven UI Flow Diagram](images/w4.png)

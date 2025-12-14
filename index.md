@@ -24,8 +24,7 @@ This session focused on evolving our relationship with AI from simple prompting 
 
 The workshop highlighted moving beyond a single prompt into a multi-step iterative process to improve code generation quality.
 
-```html
-<div class="mermaid">
+```mermaid
 graph TD
     A[Start: Define Task & Context] --> B{AI Drafts Solution};
     B --> C[AI Critiques Draft];
@@ -34,7 +33,7 @@ graph TD
     E --> F{Validation Pass};
     F -- Iteration needed --> B;
     F -- Validated --> G[Final Code Output];
-</div>
+```
 
 -----
 

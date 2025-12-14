@@ -142,4 +142,7 @@ sequenceDiagram
     AI Admin Agent (Optional)->>Firebase Remote Config: MCP Command: `set_remote_config` (Update Layout)
     end
 ```
-
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true });
+</script>

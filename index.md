@@ -1,5 +1,3 @@
-
-```markdown
 # Google Developer Groups Event Highlights & Workshop Notes
 
 *Date: [Insert Date of Event]*
@@ -145,5 +143,3 @@ sequenceDiagram
     end
 ```
 
-```
-```

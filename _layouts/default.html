@@ -1,0 +1,59 @@
+<!-- _layouts/default.html -->
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  {% include head.html %} {# This includes the theme's head content, important for CSS #}
+  <body>
+    {% include header.html %} {# This includes the theme's header if it has one #}
+
+    <div class="wrapper">
+      <header>
+        <h1>{{ site.title | default: site.github.repository_name }}</h1>
+        <p>{{ site.description | default: site.github.project_tagline }}</p>
+      </header>
+      <section>
+        {{ content }} {# This is where your Markdown content will be rendered #}
+      </section>
+
+      {% include footer.html %} {# This includes the theme's footer if it has one #}
+    </div>
+
+    <!-- Inject Mermaid JS library from CDN -->
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({ startOnLoad: false, theme: 'default' }); // startOnLoad: false because we'll manually trigger it
+    </script>
+
+    <!-- Custom script to find and transform Mermaid code blocks -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          const mermaidCodeBlocks = document.querySelectorAll('pre code.language-mermaid');
+
+          mermaidCodeBlocks.forEach(codeBlock => {
+              let diagramDefinition = codeBlock.textContent.trim();
+
+              // Remove the outer quotes that Jekyll is adding incorrectly
+              if (diagramDefinition.startsWith('"') && diagramDefinition.endsWith('"')) {
+                  diagramDefinition = diagramDefinition.substring(1, diagramDefinition.length - 1);
+                  // Also unescape any inner escaped quotes (e.g., \" to ") if Jekyll does that
+                  diagramDefinition = diagramDefinition.replace(/\\"/g, '"');
+              }
+
+              const mermaidContainer = document.createElement('div');
+              mermaidContainer.className = 'mermaid'; // This is the class Mermaid looks for
+              mermaidContainer.textContent = diagramDefinition; // Put the cleaned definition into the new div
+
+              // Replace the original <pre><code> block with our new <div>
+              if (codeBlock.parentNode) {
+                  codeBlock.parentNode.replaceWith(mermaidContainer);
+              }
+          });
+
+          // After all code blocks are transformed, re-initialize mermaid to render the new divs
+          // This ensures any newly created .mermaid divs are processed.
+          if (typeof mermaid !== 'undefined') {
+              mermaid.init();
+          }
+      });
+    </script>
+  </body>
+</html>

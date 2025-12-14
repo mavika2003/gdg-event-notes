@@ -1,3 +1,5 @@
+
+```markdown
 # Google Developer Groups Event Highlights & Workshop Notes
 
 *Date: [Insert Date of Event]*
@@ -33,6 +35,9 @@ graph TD
     E --> F{Validation Pass};
     F -- Iteration needed --> B;
     F -- Validated --> G[Final Code Output];
+```
+
+-----
 
 ## Workshop 2: Agent Developer Kit (ADK)
 
